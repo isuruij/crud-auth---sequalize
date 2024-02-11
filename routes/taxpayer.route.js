@@ -21,6 +21,22 @@ router.post('/register',async (req,res)=>{
     }
 })
 
+
+router.get('/register',async (req,res)=>{
+    try{
+
+        const taxpayer  = await Taxpayer.findAll({where:{name:req.body.name}})
+        res.json({Status:"Success",Data:taxpayer})
+        // await service.addTaxpayer(req.body)
+        // const data = req.body
+        // const token = jwt.sign({data},"key")
+        // res.cookie("token",token)
+        // res.json({Status:"Success",Data:data})
+        // res.status(201).send('created successfully !.')
+    }catch(error){
+        res.json({Status:"Falied to register"})
+    }
+})
 // router.post('/login',async (req,res)=>{
 //     try{
 //         const data = await service.loginTaxpayer(req.body)
