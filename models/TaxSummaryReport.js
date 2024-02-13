@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define("TaxSummaryReport", {
+    const TaxSummaryReport = sequelize.define("TaxSummaryReport", {
       reportId: {
         type: DataTypes.STRING,
         allowNull: false,

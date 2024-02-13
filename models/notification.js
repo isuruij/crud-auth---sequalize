@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define("notification", {
+  const notification = sequelize.define("notification", {
     notificationId: {
       type: DataTypes.STRING,
       allowNull: false,
