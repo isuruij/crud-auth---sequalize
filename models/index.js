@@ -15,16 +15,25 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
+// Function to recursively load models from directories
+function loadModels(dir, sequelize) {
+  fs.readdirSync(dir)
+    .forEach(file => {
+      const filePath = path.join(dir, file);
+      const stat = fs.lstatSync(filePath);
+      if (stat.isDirectory()) {
+        loadModels(filePath, sequelize); // If it's a directory, load models recursively
+      } else if (file !== basename && file.slice(-3) === '.js') {
+        const model = require(filePath)(sequelize, Sequelize.DataTypes);
+        db[model.name] = model;
+      }
+    });
+}
 
+// Load models from the current directory recursively
+loadModels(__dirname, sequelize);
+
+// Associate models if needed
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);

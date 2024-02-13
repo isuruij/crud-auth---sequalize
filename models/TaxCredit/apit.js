@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const businessIncome = sequelize.define("apit", {
+    const apit = sequelize.define("apit", {
       userId: {
         type: DataTypes.STRING,
         allowNull: false,
