@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       taxCreditId: {
         type: DataTypes.STRING,
         allowNull: false,
+        primaryKey: true,
       },
       whtOnInvestmentIncome: {
         type: DataTypes.FLOAT,

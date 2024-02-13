@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       incomeId: {
         type: DataTypes.STRING,
         allowNull: false,
+        primaryKey: true,
       },
       otherIncome: {
         type: DataTypes.FLOAT,

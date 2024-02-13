@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
       reportId: {
         type: DataTypes.STRING,
         allowNull: false,
+        primaryKey: true,
       },
       isVerified: {
         type: DataTypes.BOOLEAN,

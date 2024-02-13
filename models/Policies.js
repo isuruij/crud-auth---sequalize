@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
         policyId: {
         type: DataTypes.STRING,
         allowNull: false,
+        primaryKey: true,
       },
       policyTitle: {
         type: DataTypes.STRING,

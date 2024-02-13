@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     assessmentId: {
       type: DataTypes.STRING,
       allowNull: false,
+      primaryKey: true,
     },
     whtWhichIsNotDeducted: {
       type: DataTypes.FLOAT,

@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     notificationId: {
       type: DataTypes.STRING,
       allowNull: false,
+      primaryKey: true,
     },
     message: {
       type: DataTypes.STRING,

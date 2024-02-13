@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
       documentId: {
         type: DataTypes.STRING,
         allowNull: false,
+        primaryKey: true,
       },
       path: {
         type: DataTypes.STRING,
