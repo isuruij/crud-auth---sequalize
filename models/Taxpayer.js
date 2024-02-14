@@ -57,24 +57,80 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Taxpayer.associate = (models) => {
+
+    //Income
+    Taxpayer.hasMany(models.investmentIncome, {
+      foreignKey: 'taxpayerId', 
+      as: 'investmentIncome', 
+    });
+
     Taxpayer.hasMany(models.businessIncome, {
-      foreignKey: 'taxpayerId', // This is the foreign key in the BusinessIncome model
-      as: 'businessIncomes', // Alias to use when querying the associations
+      foreignKey: 'taxpayerId', 
+      as: 'businessIncomes', 
+    });
+
+    Taxpayer.hasMany(models.employmentIncome, {
+      foreignKey: 'taxpayerId', 
+      as: 'employmentIncome', 
+    });
+ 
+    Taxpayer.hasMany(models.otherIncome, {
+      foreignKey: 'taxpayerId', 
+      as: 'otherIncome', 
+    });
+
+    //Tax credit
+    Taxpayer.hasMany(models.apit, {
+      foreignKey: 'taxpayerId', 
+      as: 'apit', 
     });
 
     Taxpayer.hasMany(models.whtOnInvestmentIncome, {
-      foreignKey: 'taxpayerId', // This is the foreign key in the WhtOnInvestmentIncome model
-      as: 'whtOnInvestmentIncomes', // Alias to use when querying the associations
+      foreignKey: 'taxpayerId', 
+      as: 'whtOnInvestmentIncomes', 
     });
 
     Taxpayer.hasMany(models.whtOnServiceFeeReceived, {
-      foreignKey: 'taxpayerId', // This is the foreign key in the WhtOnServiceFeeReceived model
-      as: 'whtOnServiceFeeReceiveds', // Alias to use when querying the associations
+      foreignKey: 'taxpayerId', 
+      as: 'whtOnServiceFeeReceiveds', 
     });
 
     Taxpayer.hasMany(models.selfAssessmentPayment, {
-      foreignKey: 'taxpayerId', // This is the foreign key in the SelfAssessmentPayment model
-      as: 'selfAssessmentPayments', // Alias to use when querying the associations
+      foreignKey: 'taxpayerId', 
+      as: 'selfAssessmentPayments', 
+    });
+
+    //Other assesment
+    Taxpayer.hasMany(models.capitalValue, {
+      foreignKey: 'taxpayerId', 
+      as: 'capitalValue', 
+    });
+
+    Taxpayer.hasMany(models.terminalBenefits, {
+      foreignKey: 'taxpayerId', 
+      as: 'terminalBenefits', 
+    });
+
+    Taxpayer.hasMany(models.whtWhichIsNotDeducted, {
+      foreignKey: 'taxpayerId', 
+      as: 'whtWhichIsNotDeducted', 
+    });
+
+
+    //Relief&Qualifiyingpayment
+    Taxpayer.hasMany(models.qualifyingPayments, {
+      foreignKey: 'taxpayerId', 
+      as: 'qualifyingPayments', 
+    });
+
+    Taxpayer.hasMany(models.reliefForExpenditure, {
+      foreignKey: 'taxpayerId', 
+      as: 'reliefForExpenditure', 
+    });
+
+    Taxpayer.hasMany(models.reliefForRentIncome, {
+      foreignKey: 'taxpayerId', 
+      as: 'reliefForRentIncome', 
     });
 
     

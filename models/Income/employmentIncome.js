@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const employeeIncome = sequelize.define("employeeIncome", {
+  const employmentIncome = sequelize.define("employmentIncome", {
 
     incomeId: {
       type: DataTypes.STRING,
@@ -14,5 +14,5 @@ module.exports = (sequelize, DataTypes) => {
 
   
 
-  return employeeIncome;
+  return employmentIncome;
 };
