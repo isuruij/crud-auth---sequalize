@@ -12,5 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
+  
+
   return employeeIncome;
 };

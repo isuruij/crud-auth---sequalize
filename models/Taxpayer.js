@@ -1,4 +1,3 @@
-
 module.exports = (sequelize, DataTypes) => {
   
   const Taxpayer = sequelize.define("Taxpayer", {
@@ -56,8 +55,30 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
+
   Taxpayer.associate = (models) => {
-    Taxpayer.belongsTo(models.User, { foreignKey: 'userId' }); // Many-to-one relationship with User
-};
+    Taxpayer.hasMany(models.businessIncome, {
+      foreignKey: 'taxpayerId', // This is the foreign key in the BusinessIncome model
+      as: 'businessIncomes', // Alias to use when querying the associations
+    });
+
+    Taxpayer.hasMany(models.whtOnInvestmentIncome, {
+      foreignKey: 'taxpayerId', // This is the foreign key in the WhtOnInvestmentIncome model
+      as: 'whtOnInvestmentIncomes', // Alias to use when querying the associations
+    });
+
+    Taxpayer.hasMany(models.whtOnServiceFeeReceived, {
+      foreignKey: 'taxpayerId', // This is the foreign key in the WhtOnServiceFeeReceived model
+      as: 'whtOnServiceFeeReceiveds', // Alias to use when querying the associations
+    });
+
+    Taxpayer.hasMany(models.selfAssessmentPayment, {
+      foreignKey: 'taxpayerId', // This is the foreign key in the SelfAssessmentPayment model
+      as: 'selfAssessmentPayments', // Alias to use when querying the associations
+    });
+
+    
+  };
+
   return Taxpayer;
 };
