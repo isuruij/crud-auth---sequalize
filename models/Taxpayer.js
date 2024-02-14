@@ -2,6 +2,19 @@
 module.exports = (sequelize, DataTypes) => {
   
   const Taxpayer = sequelize.define("Taxpayer", {
+    userId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      primaryKey: true,
+    },
+    userName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,

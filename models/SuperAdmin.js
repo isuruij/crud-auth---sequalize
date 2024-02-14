@@ -1,13 +1,21 @@
 
 module.exports = (sequelize, DataTypes) => {
     const SuperAdmin = sequelize.define("SuperAdmin", {
-      // Admin-specific attributes...
+      userId: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        primaryKey: true,
+      },
+      userName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      }
     });
-  
-    SuperAdmin.associate = (models) => {
-        SuperAdmin.belongsTo(models.User, { foreignKey: 'userId' }); // Many-to-one relationship with User
-    };
-  
+    
     return SuperAdmin;
   };
   
