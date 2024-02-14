@@ -14,7 +14,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       }
     });
-   
+    User.associate = (models) => {
+      User.hasOne(models.SuperAdmin, { foreignKey: 'userId' }); // One-to-one relationship with Admin
+      User.hasOne(models.Taxpayer, { foreignKey: 'userId' }); // One-to-one relationship with Taxpayer
+      User.hasOne(models.SecondAdmin, { foreignKey: 'userId' }); // One-to-one relationship with Taxpayer
+    };
     return User;
   };
   

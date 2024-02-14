@@ -1,9 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const investmentIncome = sequelize.define("investmentIncome", {
-    userId: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+
     incomeId: {
       type: DataTypes.STRING,
       allowNull: false,

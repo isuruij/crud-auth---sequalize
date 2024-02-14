@@ -1,4 +1,6 @@
+
 module.exports = (sequelize, DataTypes) => {
+  
   const Taxpayer = sequelize.define("Taxpayer", {
     name: {
       type: DataTypes.STRING,
@@ -41,6 +43,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
- 
+  Taxpayer.associate = (models) => {
+    Taxpayer.belongsTo(models.User, { foreignKey: 'userId' }); // Many-to-one relationship with User
+};
   return Taxpayer;
 };

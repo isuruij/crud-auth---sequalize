@@ -1,9 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const apit = sequelize.define("apit", {
-      userId: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+
       taxCreditId: {
         type: DataTypes.STRING,
         allowNull: false,

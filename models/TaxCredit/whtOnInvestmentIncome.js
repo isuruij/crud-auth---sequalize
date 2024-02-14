@@ -1,9 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const whtOnInvestmentIncome = sequelize.define("whtOnInvestmentIncome", {
-      userId: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+
       taxCreditId: {
         type: DataTypes.STRING,
         allowNull: false,
