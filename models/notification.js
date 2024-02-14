@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const notification = sequelize.define("notification", {
+  const Notification = sequelize.define("Notification", {
     notificationId: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -15,5 +15,5 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  return notification;
+  return Notification;
 };
